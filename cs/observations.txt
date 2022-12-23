@@ -1,0 +1,28 @@
+1) The results from the insert function take 1.07 seconds
+where as the append function takes 3.04 mili seconds.
+ 
+
+(table compares miliseconds) 
+(numbers are rounded.)
+
+insert      append
+________________________
+    1100    |    3        extra larg earray
+    9.4     |   .005      large array
+
+(time now in microseconds for ease of read)
+
+    197.2   |     177.5    medium array
+    51      |     101.2    small array
+    38.8    |     93.2     tiny array
+        
+
+In the beginning the timing of the functions are not too off from each other. 
+however, we can see that as the size of the arrays passed in increases, the functions space time
+become vastly different. insert starts out small, but increases an insane amount compared to the append function.
+
+The append function is obviously significantly faster when given a huge value. Why is that?
+Because .unshift adds to the beginning of an array, while .push adds to the end. If something is added to 
+the end it won't need to shift the indexes of the entire array because it simply just 
+adds it on to the end. However, in the case of unshift this is true since the number in this 
+case is being added to the beginning of the index. So it hast to shift everything else over. 
